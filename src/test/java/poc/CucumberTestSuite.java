@@ -4,16 +4,13 @@ import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.Scenario;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.platform.suite.api.ConfigurationParameter;
-import org.junit.platform.suite.api.IncludeEngines;
-import org.junit.platform.suite.api.SelectClasspathResource;
-import org.junit.platform.suite.api.Suite;
+import org.junit.platform.suite.api.*;
 
 import static io.cucumber.core.options.Constants.*;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("/features") // carpeta donde están tus .feature
+@SelectPackages("features") // carpeta donde están tus .feature
 @ConfigurationParameter(
         key = PLUGIN_PROPERTY_NAME,
         value = "io.cucumber.core.plugin.SerenityReporterParallel,pretty,timeline:build/test-results/timeline"
@@ -27,7 +24,7 @@ import static io.cucumber.core.options.Constants.*;
 
 @ConfigurationParameter(
         key = FILTER_TAGS_PROPERTY_NAME,
-        value = "@ejemploMovil" // puedes cambiarlo por el tag que quieras ejecutar
+        value = "@demoqa" // puedes cambiarlo por el tag que quieras ejecutar
 )
 
 public class CucumberTestSuite {
